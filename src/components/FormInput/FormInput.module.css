@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.wrapper input {
+  border-radius: 1rem;
+  padding: 0.2rem 0.8rem;
+  border: none;
+  width: 12rem;
+  height: 2rem;
+}
+
+.wrapper select {
+  border-radius: 1rem;
+  padding: 0.2rem 0.8rem;
+  border: none;
+  width: 9rem;
+  height: 2rem;
+}
+
+.wrapper select:hover {
+  cursor: pointer;
+}

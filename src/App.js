@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from "./App.module.css";
+import FormInput from "./components/FormInput/FormInput";
+import Table from "./components/Table/Table";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className={styles.header}>
+        <nav>
+          <h1>Statify</h1>
+        </nav>
       </header>
-    </div>
+      <FormInput />
+      <Table />
+    </>
   );
 }
 
