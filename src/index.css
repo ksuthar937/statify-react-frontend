@@ -1,8 +1,10 @@
 :root {
   /* Global variables to be defined here */
   --color-white: #ffffff;
+  --color-black: #000000;
+
   --color-primary1: #9cc5ff;
-  --color-primary2: #3bb6fe;
+  --color-primary2: #ffe385;
   --color-primary3: #6f85ff;
   --color-secondary1: #9c7ffe;
   --color-secondary2: #a666fe;

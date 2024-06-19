@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.btn {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn button {
+  border-radius: 1rem;
+  padding: 0.2rem 0.8rem;
+  border: none;
+  background-color: var(--color-primary2);
+}
+
+.btn button:hover {
+  cursor: pointer;
+}

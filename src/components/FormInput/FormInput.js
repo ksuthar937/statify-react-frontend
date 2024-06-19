@@ -2,11 +2,19 @@ import React from "react";
 
 import styles from "./FormInput.module.css";
 
-const FormInput = () => {
+const FormInput = ({ month, handleMonth, search, handleSearch }) => {
   return (
     <div className={styles.wrapper}>
-      <input type="text" placeholder="Search transaction" />
-      <select>
+      <input
+        type="text"
+        placeholder="Search transaction"
+        value={search}
+        onChange={(e) => handleSearch(e.target.value)}
+      />
+      <select
+        defaultValue={month}
+        onChange={(e) => handleMonth(e.target.value)}
+      >
         <option value="">Select Month</option>
         <option value="january">January</option>
         <option value="february">February</option>

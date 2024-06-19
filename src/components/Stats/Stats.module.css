@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.wrapper h1 {
+  text-transform: capitalize;
+}
+
+.table {
+  box-shadow: 0.3em 0.3em 2em rgba(110, 105, 105, 0.4);
+  border-radius: 10px;
+  background: var(--color-primary2);
+  text-align: left;
+}
+
+.wrapper td {
+  border: none;
+}
