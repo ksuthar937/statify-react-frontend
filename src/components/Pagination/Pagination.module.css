@@ -14,9 +14,24 @@
   border-radius: 1rem;
   padding: 0.2rem 0.8rem;
   border: none;
-  background-color: var(--color-primary2);
+  background-color: var(--color-primary3);
 }
 
 .btn button:hover {
+  cursor: pointer;
+}
+
+.btn button:disabled {
+  cursor: default;
+}
+
+.perpage {
+  border-radius: 1rem;
+  padding: 0.2rem;
+  border: none;
+  background-color: var(--color-white);
+}
+
+.perpage:hover {
   cursor: pointer;
 }

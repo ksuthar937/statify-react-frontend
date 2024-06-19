@@ -1,35 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./Pagination.module.css";
+import axios from "axios";
+import { API_URL } from "../../config";
 
 const Pagination = ({
+  month,
   page,
-  handlePage,
+  handlePrevPage,
+  handleNextPage,
   perPage,
   handlePerPage,
-  itemsCount,
 }) => {
-  //   const possiblePage = Math.floor(itemsCount / perPage);
+  // For working of next and previous buttons calculated derive state
 
-  const handlePrevPage = () => {
-    handlePage((prev) => prev--);
-  };
+  const [itemsCount, setItemsCount] = useState(0);
 
-  const handleNextPage = () => {
-    handlePage((prev) => {
-      console.log(prev);
-      prev = prev + 1;
-    });
+  const possiblePage = Math.ceil(itemsCount / perPage);
+
+  useEffect(() => {
+    fetchTransactions(month);
+  }, [month]);
+
+  const fetchTransactions = async (month) => {
+    try {
+      const response = await axios(`${API_URL}/transactions?month=${month}`);
+      setItemsCount(response.data.transactions.length);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div className={styles.wrapper}>
       <p>Page No: {page}</p>
       <div className={styles.btn}>
-        <button onClick={handlePrevPage}>Previous</button>
-        <button onClick={handleNextPage}>Next</button>
+        <button onClick={handlePrevPage} disabled={page <= 1}>
+          Previous
+        </button>
+        <button onClick={handleNextPage} disabled={page === possiblePage}>
+          Next
+        </button>
       </div>
-      <p>Per Page: {perPage}</p>
+      <p>
+        Per Page:{" "}
+        <select
+          className={styles.perpage}
+          value={perPage}
+          onChange={(e) => handlePerPage(e.target.value)}
+        >
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+          <option value={6}>6</option>
+          <option value={7}>7</option>
+          <option value={8}>8</option>
+          <option value={9}>9</option>
+          <option value={10}>10</option>
+        </select>
+      </p>
     </div>
   );
 };

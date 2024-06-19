@@ -1,5 +1,5 @@
 .wrapper {
-  background-color: var(--color-white);
+  background-color: var(--color-primary2);
   text-align: left;
   border-collapse: collapse;
   width: 100%;
@@ -13,7 +13,11 @@ td {
   padding: 0.5rem;
 }
 
-span {
+.wrapper thead {
+  background-color: var(--color-primary3);
+}
+
+.cell {
   display: inline-block;
   width: 70px;
   white-space: nowrap;
@@ -21,14 +25,28 @@ span {
   text-overflow: ellipsis;
 }
 
+.img {
+  text-align: center;
+}
+.id {
+  text-align: center;
+}
+.sold {
+  text-align: center;
+}
+
+.price {
+  text-align: center;
+}
+
 @media screen and (min-width: 786px) {
-  span {
-    width: 200px;
+  .cell {
+    width: 150px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  span {
-    width: 300px;
+  .cell {
+    width: 250px;
   }
 }

@@ -5,7 +5,7 @@ import { API_URL } from "../../config";
 
 import styles from "./Table.module.css";
 
-const Table = ({ month, search, page, perPage, handleCount }) => {
+const Table = ({ month, search, page, perPage }) => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,6 @@ const Table = ({ month, search, page, perPage, handleCount }) => {
         `${API_URL}/transactions?month=${month}&search=${search}&perPage=${perPage}&pageNo=${page}`
       );
       setTransactions(response.data.transactions);
-      handleCount(response.data.transactions.length);
     } catch (error) {
       console.log(error);
     }
@@ -28,35 +27,36 @@ const Table = ({ month, search, page, perPage, handleCount }) => {
     <table className={styles.wrapper}>
       <thead>
         <tr>
-          <th>ID</th>
+          <th className={styles.id}>ID</th>
           <th>Title</th>
           <th>Description</th>
-          <th>Price</th>
+          <th className={styles.price}>Price</th>
           <th>Category</th>
-          <th>Sold</th>
+          <th className={styles.sold}>Sold</th>
           <th>Image</th>
         </tr>
       </thead>
       <tbody>
         {transactions.map((transaction) => (
           <tr key={transaction._id}>
-            <td>{transaction.id}</td>
+            <td className={styles.id}>{transaction.id}</td>
             <td>
-              <span>{transaction.title}</span>
+              <span className={styles.cell}>{transaction.title}</span>
             </td>
             <td>
-              <span>{transaction.description}</span>
+              <span className={styles.cell}>{transaction.description}</span>
             </td>
-            <td>{transaction.price.toFixed(0)}</td>
+            <td className={styles.price}>{transaction.price.toFixed(0)}</td>
             <td>
-              <span>{transaction.category}</span>
+              <span className={styles.cell}>{transaction.category}</span>
             </td>
-            <td>{transaction.sold ? "Yes" : "No"}</td>
+            <td className={styles.sold}>{transaction.sold ? "Yes" : "No"}</td>
             <td>
               <img
                 src={transaction.image}
                 alt="Rain Jacket Women Windbreaker Striped Climbing Raincoats"
-                width={30}
+                width={32}
+                height={32}
               />
             </td>
           </tr>

@@ -1,12 +1,40 @@
 .header {
   background: var(--color-secondary1);
+  padding-left: 1rem;
 }
 
-.header nav h1 {
+.heading {
   font-size: 2rem;
   font-weight: 500;
+  color: var(--color-white);
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: bolder;
+  font-family: cursive;
+}
+
+.heading span {
+  padding-right: 1rem;
 }
 
 .transactions {
-  margin: 1rem;
+  margin: 0.2rem;
+}
+
+.statistics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 786px) {
+  .statistics {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  .transactions {
+    margin: 1rem 3rem;
+  }
 }
